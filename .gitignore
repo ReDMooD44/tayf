@@ -1,0 +1,24 @@
+# Android derleme çıktıları
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+*.iml
+
+# index.html derleme sırasında buraya kopyalanır (tek kaynak: depo kökü)
+android/app/src/main/assets/
+
+# yerel önizleme ayarı
+.claude/
+
+# İmza anahtarı ve parolaları: depoya asla girmez
+release/
+*.jks
+*.keystore
+tayf_flutter/android/key.properties
+
+# Flutter çıktıları (tayf_flutter kendi .gitignore'una da sahip)
+tayf_flutter/.dart_tool/
+tayf_flutter/build/
+tayf_flutter/.flutter-plugins-dependencies

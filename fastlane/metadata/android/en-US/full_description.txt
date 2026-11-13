@@ -1,0 +1,20 @@
+TAYF is a small, quiet puzzle game about light.
+
+Every level gives you a handful of optical pieces: prisms that split white
+light into red, green and blue, mirrors that bounce a beam, and lenses that
+focus it. Drag a piece onto the board, rotate it with your finger or the fine
+tuning pad, and route the beams into every target before the timer runs out.
+
+FEATURES
+
+- Six hand-made levels, then an endless ladder of generated puzzles
+- A new daily puzzle, the same for everyone
+- Par scores, medals, coins, hints and a small shop
+- Generous touch controls: drag, rotate, nudge and remove, plus 0.1 degree
+  fine tuning for the pieces that need it
+- All sound is synthesised on the device; there are no audio files
+- Progress is stored locally on the phone
+- Works fully offline. No ads, no analytics, no network permission.
+
+TAYF is free software, released under the GNU GPL v3.0.
+The complete source code is available on GitHub.

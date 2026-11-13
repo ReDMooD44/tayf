@@ -1,0 +1,20 @@
+TAYF, ışıkla ilgili küçük ve sakin bir bulmaca oyunudur.
+
+Her bölümde birkaç optik parça verilir: beyaz ışığı kırmızı, yeşil ve maviye
+ayıran prizmalar, huzmeyi yansıtan aynalar ve onu toplayan mercekler. Parçayı
+tahtaya sürükleyin, parmağınızla veya ince ayar paneliyle döndürün; süre
+dolmadan bütün hedeflere ışığı ulaştırın.
+
+ÖZELLİKLER
+
+- Altı elle tasarlanmış bölüm, ardından sonsuz üretilen bölüm merdiveni
+- Herkes için aynı olan günlük bulmaca
+- Par dereceleri, madalyalar, para, ipucu ve küçük bir dükkân
+- Dokunmatiğe uygun kontroller: sürükle, döndür, kaydır, kaldır; hassas
+  parçalar için 0,1 derecelik ince ayar
+- Bütün sesler cihazda sentezlenir; ses dosyası yoktur
+- İlerleme telefonun içinde saklanır
+- Tamamen çevrimdışı çalışır. Reklam, analitik ve ağ izni yoktur.
+
+TAYF, GNU GPL v3.0 altında özgür yazılımdır.
+Kaynak kodun tamamı GitHub'da bulunur.

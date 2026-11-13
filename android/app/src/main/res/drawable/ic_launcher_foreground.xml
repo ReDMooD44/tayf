@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Prizma beyaz ışığı tayfına ayırıyor; oyunun özeti. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- gelen beyaz demet -->
+    <path
+        android:pathData="M22,53 L45,53"
+        android:strokeColor="#EAF6FA"
+        android:strokeWidth="3.4"
+        android:strokeLineCap="round" />
+
+    <!-- prizma -->
+    <path
+        android:pathData="M54,33 L70,65 L38,65 Z"
+        android:fillColor="#2AAAE1FF"
+        android:strokeColor="#EAF6FA"
+        android:strokeWidth="2.6"
+        android:strokeLineJoin="round" />
+
+    <!-- ayrışan tayf -->
+    <path
+        android:pathData="M64,55 L88,45"
+        android:strokeColor="#FF4B3A"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M65,58 L88,55"
+        android:strokeColor="#FF922E"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M66,61 L88,65"
+        android:strokeColor="#49F58A"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M67,64 L87,75"
+        android:strokeColor="#5B8DFF"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+</vector>

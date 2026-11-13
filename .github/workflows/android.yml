@@ -1,0 +1,54 @@
+name: APK
+
+# Depoda Android SDK gerekmez: APK'yı GitHub derler.
+# - her itmede derlenir ve "Artifacts" altına yüklenir
+# - v1.0 gibi bir etiket itilirse ayrıca Releases'a eklenir
+on:
+  push:
+    branches: [main, master]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: APK derle
+        working-directory: android
+        run: gradle assembleDebug --no-daemon --stacktrace
+
+      - name: Adını sürümle
+        id: apk
+        run: |
+          src=$(find android/app/build/outputs/apk/debug -name '*.apk' | head -n1)
+          out="tayf-${GITHUB_REF_NAME//\//-}-${GITHUB_SHA::7}.apk"
+          cp "$src" "$out"
+          echo "path=$out" >> "$GITHUB_OUTPUT"
+
+      - name: APK'yı yükle
+        uses: actions/upload-artifact@v4
+        with:
+          name: tayf-apk
+          path: ${{ steps.apk.outputs.path }}
+          if-no-files-found: error
+
+      - name: Etiketliyse Releases'a ekle
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.apk.outputs.path }}

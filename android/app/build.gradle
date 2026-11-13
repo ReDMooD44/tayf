@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.tayf.game'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.tayf.game"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+/* Oyunun tek kaynağı depo kökündeki index.html.
+   Derlemeden önce assets'e kopyalanır, böylece dosya iki yerde tutulmaz. */
+tasks.register('copyGame', Copy) {
+    from file("${rootDir}/../index.html")
+    into layout.projectDirectory.dir('src/main/assets')
+}
+tasks.named('preBuild') { dependsOn('copyGame') }

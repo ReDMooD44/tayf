@@ -1,0 +1,67 @@
+# TAYF - fdroiddata taslağı
+#
+# F-Droid'in ana deposuna (gitlab.com/fdroid/fdroiddata) gönderilecek tarifin
+# taslağıdır: metadata/com.tayf.tayf.yml olarak eklenir. İlk başvuru için RFP
+# (Requests for Packaging) issue'su açmak yeterlidir; gönüllüler bu taslağı
+# gözden geçirip düzeltir.
+#
+# Flutter SDK kaynaktan derlenmez: F-Droid'de flutter bir srclib'dir ve
+# derleme sırasında indirilip önbelleğe alınır ($$flutter$$).
+
+Categories:
+  - Games
+License: GPL-3.0-only
+AuthorName: Harun Akbulut
+WebSite: https://github.com/ReDMooD44/tayf
+SourceCode: https://github.com/ReDMooD44/tayf
+IssueTracker: https://github.com/ReDMooD44/tayf/issues
+Changelog: https://github.com/ReDMooD44/tayf/releases
+
+AutoName: TAYF
+Summary: Bend light through prisms, mirrors and lenses to light every target
+Description: |
+    TAYF is a small, quiet puzzle game about light.
+
+    Every level gives you a handful of optical pieces: prisms that split white
+    light into red, green and blue, mirrors that bounce a beam, and lenses that
+    focus it. Drag a piece onto the board, rotate it with your finger or the
+    fine tuning pad, and route the beams into every target before the timer
+    runs out.
+
+    Features:
+
+    * Six hand-made levels, then an endless ladder of generated puzzles
+    * A new daily puzzle, the same for everyone
+    * Par scores, medals, coins, hints and a small shop
+    * Generous touch controls: drag, rotate, nudge and remove, plus 0.1 degree
+      fine tuning for the pieces that need it
+    * All sound is synthesised on the device; there are no audio files
+    * Progress is stored locally on the phone
+    * Works fully offline: no ads, no analytics, no network permission
+
+RepoType: git
+Repo: https://github.com/ReDMooD44/tayf.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: v1.0.0
+    srclibs:
+      - flutter@3.50.0
+    prebuild:
+      - cd tayf_flutter
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get --enforce-lockfile
+    build:
+      - cd tayf_flutter
+      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
+    output: tayf_flutter/build/app/outputs/flutter-apk/app-release.apk
+    scanignore:
+      - $$flutter$$/bin/cache
+    ndk: 28.2.13676358
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: tayf_flutter/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: '1.0.0'
+CurrentVersionCode: 1
