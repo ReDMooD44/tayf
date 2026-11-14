@@ -47,6 +47,20 @@ yedekleme notları `release/KEYSTORE-README.txt` içinde. **O iki dosyayı
 kaybetmeyin**: Android'de bir uygulama yalnızca onu ilk imzalayan anahtarla
 güncellenebilir.
 
+GitHub Actions da aynı anahtarla imzalayabilir. Depo ayarlarında
+**Settings → Secrets and variables → Actions** altına dört sır ekleyin:
+
+| Sır | Değer |
+|---|---|
+| `KEYSTORE_BASE64` | `base64 -w0 release/tayf-release.jks` çıktısı (Windows: `[Convert]::ToBase64String([IO.File]::ReadAllBytes("release\tayf-release.jks"))`) |
+| `KEYSTORE_PASSWORD` | `KEYSTORE-README.txt` içindeki parola |
+| `KEY_ALIAS` | `tayf` |
+| `KEY_PASSWORD` | anahtar parolası (aynı) |
+
+Sırlar tanımlıysa `v*` etiketinde derlenen APK imzalanıp Release'e eklenir.
+Tanımlı değilse iş akışı yalnızca "Artifacts" altına debug imzalı bir APK
+bırakır ve Release oluşturmaz — o APK'yı dağıtmayın.
+
 ## Android'e uyarlananlar
 
 - `minSdk 24` (Android 7.0+), `targetSdk` Flutter'ın güncel değeri

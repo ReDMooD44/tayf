@@ -46,18 +46,23 @@ Builds:
   - versionName: 1.0.0
     versionCode: 1
     commit: v1.0.0
+    timeout: 7200
+    subdir: tayf_flutter
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.50.0
     prebuild:
-      - cd tayf_flutter
+      - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get --enforce-lockfile
-    build:
-      - cd tayf_flutter
-      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
-    output: tayf_flutter/build/app/outputs/flutter-apk/app-release.apk
     scanignore:
       - $$flutter$$/bin/cache
+    scandelete:
+      - $$flutter$$
+      - tayf_flutter/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
     ndk: 28.2.13676358
 
 AutoUpdateMode: Version
