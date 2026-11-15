@@ -16,6 +16,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Release adımı depoya dosya ekliyor; yeni GitHub depolarında GITHUB_TOKEN
+    # varsayılan olarak salt okunur, bu satır olmadan 403 alırsın.
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
